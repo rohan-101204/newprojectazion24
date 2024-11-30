@@ -20,22 +20,932 @@ function main(event) {
   }
    
   return new Response(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Hello World</title>
-      <script>
-        ${htmx}
-      </script>
-    </head>
-    <body>
-      <h1>Hello World</h1>
-      <button hx-get="/messages" hx-target="#message">Load Message</button>
-      <p id="message"></p>
-    </body>
-    </html>
+   <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeVault</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto&family=Roboto+Condensed:wght@700&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Piedra&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto&family=Roboto+Condensed:wght@700&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+  <style>
+    *{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #eeeeee;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #BFECFF;
+    box-shadow: 0px 2px 2px 2px rgb(204, 203, 203);
+    padding: 20px;
+
+
+
+}
+ 
+nav .logo{
+    margin-left: 45px;
+    font-size:22px;
+    
+}
+nav h1{
+    font-family: 'Lato', sans-serif;
+    color:#024CAA;
+}
+ul li a{
+    margin-inline: 25px;
+     font-size: 20px;
+     
+}
+ul #home{
+    color: #FF7F3E;
+}
+ul li i{
+    font-size: 22px;
+}
+ul li i:hover{
+    color:#FF7F3E;
+    cursor: pointer;
+}
+ul li a:hover{
+     color: rgb(211, 67, 67);
+     cursor: pointer;
+
+     border-bottom: 2px solid #024CAA;
+      
+}
+ul{
+    margin-right: 50px;
+    margin-top: 6px;
+}
+ 
+nav ul{
+    list-style: none;
+}
+.mainPage{
+    display: flex;
+    justify-content: space-around;
+}
+.mainPage .text{
+    margin-top: 123px;
+}
+.text button:hover{
+    border: 3px solid rgb(4, 168, 168);
+    background-color: transparent;
+    font-weight: 700;
+    color: rgb(4, 168, 168);
+    
+
+}
+.text h1{
+    font-size: 54px;
+}
+.mainPage img{
+   margin-top: 44px;
+   background-color: #fff;
+    margin-inline: 22px;
+  height: 50vh;
+   padding: 22px;
+   border-radius: 30px;
+   
+}
+.heads{
+    color: rgb(2, 131, 131);
+}
+.text p{
+    margin-top: 22px;
+}
+.text h2{
+    color: rgb(63, 63, 63);
+}
+.text button{
+    width: 140px;
+    height: 40px;
+    margin-top: 23px;
+    background-color: rgb(2, 131, 131);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.head{
+    text-align: center;
+    padding: 44px;
+    margin-top: 11px;
+}
+.head span{
+    color: rgb(4, 155, 155);
+}
+.card{
+    display: flex;
+    justify-content: center;
+    padding: 22px;
+}
+.card .crd {
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    margin-inline: 22px;
+    
+}
+.card .crd:hover{
+    width: 320px;
+    height: 520px;
+    transition: 0.6s ease;
+}
+.crd .txt {
+    margin-left: 28px;
+ 
+}
+.txt i{
+    color: rgb(255, 196, 0);
+    margin-top: 4px;
+    font-size:19px;
+}
+.txt button{
+    width: 110px;
+    height: 33px;
+    border: none;
+    background-color: rgb(1, 148, 148);
+    color: white;
+    font-size: 16px;
+    margin-top: 8px;
+}
+ 
+.crd img{
+    width: 85%;
+    padding: 22px;
+    border-radius: 30px;
+}
+  
+.trd{
+    display: flex;
+    justify-content: center;
+    
+     
+}
+.trending{
+    display: flex;
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    margin-inline: 22px;
+    border-radius: 22px;
+
+}
+.trending .txt{
+    padding: 22px;
+    margin-top: 13%;
+}
+.txt a{
+    width: 140px;
+    height: 36px;
+    background-color: rgb(3, 94, 94);
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 7px;
+}
+.txt a:hover{
+    background-color: rgb(2, 146, 146);
+    cursor: pointer;
+    border-radius: 22px;
+    transition: 0.9 ease;
+}
+.trending img{
+    width: 55%;
+    border-radius: 22px;
+    padding: 12px;
+}
+.trending:hover{
+    width: 530px;
+    height: 330px;
+    transition: 0.7s ease;
+    cursor: pointer;
+}
+
+.letter{
+    background-color: rgba(11, 6, 37, 0.993);
+    padding: 44px;
+    margin-top: 63px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.letter .inp input{
+    width: 270px;
+    height: 29px;
+    padding: 5px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    
+}
+.inp{
+    display: flex;
+}
+.inp button{
+    width: 100px;
+    height: 39px;
+    border: none;
+    background-color: rgb(3, 134, 134);
+    font-size: 18px;
+    color: white;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(219, 218, 218);
+    padding: 42px;
+   
+}
+.footer .Ftext{
+    margin-inline: 72px;
+}
+.Ftext p{
+    margin-top: 22px;
+}
+
+
+/* about */
+
+.about{
+    display: none;
+}
+.aboutText{
+    background-color: rgb(1, 1, 43);
+    color: white;
+    padding: 54px;
+    font-size: 18px;
+
+}
+.aboutus{
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    background-color: #fff;
+    padding: 22px;
+    margin-left: 17%;
+    margin-top: 8%;
+    border-radius: 6px;
+}
+.dumiText{
+    margin-top: 66px;
+}
+.dumiText p{
+    margin-top: 11px;
+}
+
+.aboutus img{
+    width: 54%;
+    margin-right:15px;
+}
+
+/* contact */
+
+.contact{
+    display: none;
+}
+.contactBanner{
+    background-color: rgb(4, 4, 44);
+    color: white;
+    padding: 55px;
+}
+.connect{
+    display: flex;
+    justify-content: center;
+    margin-top: 33px;
+    
+    
+}
+.connectText{
+    background-color: #fff;
+    padding: 53px;
+}
+.connectText p{
+    margin-top: 21px;
+}
+.contact img{
+    width: 50%;
+}
+.contact img:hover{
+    width: 52%;
+    transition: 0.8s ease;
+    cursor: pointer;
+
+}
+.form{
+    text-align: center;
+    margin-top: 73px;
+}
+.form button{
+    width: 340px;
+    height: 40px;
+    border: none;
+    background-color: rgb(1, 87, 87);
+    color: white;
+    font-size: 22px;
+    margin-top: 22px;
+}
+.form input{
+    width: 320px;
+    padding: 8px;
+    outline: none;
+    margin: 3px;
+    margin-top: 11px;
+}
+
+/* FullPage */
+
+.fullPage{
+    
+    display: flex;
+    justify-content: center;
+    display: none;
+    margin-top: 22px;
+}
+.fullPage .cartText{
+    padding: 22px;
+    margin-top: 33px;
+}
+.cartText p{
+    margin-top: 11px;
+}
+.cartText .btn button{
+    width: 140px;
+    height: 40px;
+    background: rgb(247, 133, 2);
+    color: white;
+    border: none;
+    font-size: 22px;
+    margin-top: 22px;
+}
+.btn button:hover{
+    background-color: rgb(253, 173, 25);
+    cursor: pointer;
+}
+.cartText h2{
+    margin-top: 11px;
+}
+.relode{
+    background-color: rgb(3, 75, 75);
+    color: white;
+    width: 140px;
+    height: 34px;
+    border: none;
+    font-size: 22px;
+    margin-top: 22px;
+}
+.relode:hover{
+    background-color: rgb(4, 141, 141);
+    cursor: pointer;
+
+}
+
+.edit{
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+  }
+  
+  .footerLeft {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+  }
+  
+  .fMenuTitle {
+    font-size: 16px;
+  }
+  
+  .fList {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .fListItem {
+    margin-bottom: 10px;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <h1>VibeVault</h1>
+            </div>
+            <ul>
+                <li>
+                    <a id="home" onclick="home()">Home</a>
+                    <a id="shop" onclick="shop()">Shops</a>
+                    <a id="blog" onclick="blog()">Blog</a>
+                    <a id="about" onclick=" about()">About</a>
+                    <a id="contact" onclick="contact()">Contact</a>
+                    <i onclick="addItem()" class="fa-sharp fa-solid fa-cart-shopping"></i>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="mainPage">
+            <div class="text">
+                <h2>Welcome to VibeVault</h2>
+                <h1 class="heads">Discover the Essence of Shopping</h1>
+                <!-- <h1>On All Products</h1> -->
+                <p>Shop unique finds and unbeatable deals, all curated to match your vibe. Explore, shop, and elevate effortlessly!</p>
+                <button onclick="shop()" >Explore</button>
+            </div>
+            <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/home-page.webp" alt="">
+        </div>
+
+
+
+        <div class="cardMen">
+            <div class="head">
+                <h1>Everyday Heroes: <span> Men’s Collection</span></h1>
+            </div>
+            <div class="card" id="item1">
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/hoodie.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>  Hooded sweatshirt</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="add(item1)">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/men-tshirt.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>Round Neck Polyester  T-Shirt</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/shirt.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>Graphic Print Round Neck T-shirt</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()">Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/kurta.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>Men ethic wear</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cardgirl">
+            <div class="head">
+                <h1>The Ultimate  <span>Women’s Collection</span></h1>
+            </div>
+
+            <div class="card">
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/red-kurti.webp" alt="" onclick="showCard(this) ">
+                    <div class="txt">
+                        <h3>Women Embroidered Cotton Kurti</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/women%20hoodie.webp" alt="" onclick="showCard(this) ">
+                    <div class="txt">
+                        <h3>Full Sleeve Solid Hooded Sweatshirt</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/women%20shirt.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>Casual Regular Sleeves Top</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/lehenga.webp" alt="" onclick="showCard(this) ">
+                    <div class="txt">
+                        <h3>lehenga</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cardkids">
+            <div class="head">
+                <h1>Kids Collection:<span>Where Fun Meets Fashion</span></h1>
+            </div>
+
+            <div class="card">
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/kids3.webp" alt="" onclick="showCard(this) ">
+                    <div class="txt">
+                        <h3>Boys Party(Festive) T-shirt Trouser(WHITE)</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <!-- <i class="fa-solid fa-star"></i> -->
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/kids1.webp" alt="" onclick="showCard(this) ">
+                    <div class="txt">
+                        <h3>Boys Casual T-shirt Track Pants</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/kids%202.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>Girls Midi/Knee Length Casual Dress</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="crd">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/kids%20ethic.webp" alt="" onclick="showCard(this)">
+                    <div class="txt">
+                        <h3>ethic kids combo</h3>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><br>
+                        <button onclick="addToCart()" >Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Full cart  -->
+        <div class="fullPage">
+            <img id="cartImg" src=" " alt="">
+            <div class="cartText">
+                <h1>Stay Warm, Look Cool <br> The Perfect Hoodie</h1>
+                <h2>Special Price</h2>
+                <h2>₹ 999</h2>
+                <p>Stay cozy and stylish with our soft, comfortable hoodie, designed for everyday comfort and a perfect fit.</p>
+                
+                <div class="btn">
+                    <button>Buy Now</button>
+                    <button onclick="addToCart()">Add To Cart</button>
+
+                </div>
+                <div class="btns">
+                    <button class="relode" onclick="location.reload()">Back </button>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+        <div class="blogContent">
+            <div class="head">
+                <h1>Our Blog, <span> Your Inspiration</span></h1>
+            </div>
+
+            <div class="trd">
+                <div class="trending">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/women-blog.webp" alt="">
+                    <div class="txt">
+                        <h3>"Fashion for Confidence: Dress to Impress Yourself!" </h3><br>
+                        <p>Learn how to boost your confidence with outfits that empower, inspire, and let your inner strength shine through.</p><br>
+                        <a href="https://www.thetrendspotter.net/category/womens-style/" class="edit">Read More</a>
+                    </div>
+                </div>
+                <div class="trending">
+                    <img src="https://raw.githubusercontent.com/rohan-101204/vibeVault/refs/heads/main/men%20blog.webp" alt="">
+                    <div class="txt">
+                        <h3>"Fashion Icons Every Man Should Know"</h3> <br>
+                        <p>Discover legendary men whose iconic styles continue to inspire modern fashion, from classic tailoring to bold streetwear trends.</p><br>
+                        <a href="https://www.menswearstyle.co.uk/" class="edit">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="aboutText">
+                <h1>#Know Us...</h1>
+                <p>"Discover Who We Are and What Drives Us"</p>
+            </div>
+
+            <div class="aboutus">
+                <img src="https://github.com/rohan-101204/vibeVault/blob/main/Screenshot%202024-11-29%20204235.png?raw=true" alt="">
+                <div class="dumiText">
+                    <h1>Who we are ?</h1>
+                    <p>Founded by Rohan Sharma, we are a passionate team committed to delivering high-quality, stylish products that enhance everyday life. Our goal is to offer more than just products – we aim to inspire confidence, creativity, and comfort in everything we do. With a focus on craftsmanship, innovation, and customer satisfaction, we strive to create a brand that truly resonates with our community.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact -->
+
+        <div class="contact">
+            <div class="contactBanner">
+                <h1>#Let's Connect</h1>
+                <p>"Get in Touch: We’d Love to Hear From You!"</p>
+
+            </div>
+            <div class="connect">
+                <div class="connectText">
+                    <h1>Visit Our Office or Contact <br> Us Today</h1>
+                    <p>Address : Narendrapur, kolkata</p>
+                    <p>Contact : sharmarohankr@gmail.com</p>
+                    <p>Number : 9038927198</p>
+                </div>
+                <img src="https://github.com/rohan-101204/vibeVault/blob/main/map.jpg?raw=true" alt="">
+            </div>
+
+            <div class="form">
+                <h1>Connect with Us. Fill Form</h1>
+                <input type="text" placeholder="Enter Your FirstName"> <br>
+                <input type="text" placeholder="Enter Your LsstName"> <br>
+                <input type="text" placeholder="Enter Your Email"><br>
+                <input type="text" placeholder="Enter Your Number"><br>
+                <input type="text" placeholder="Enter Your Address"><br>
+                <button>Submit</button>
+
+            </div>
+        </div>
+
+        <div class="letter">
+            <div class="sign">
+                <h2>Sign Up for NewsLetter</h2>
+                <p> To get the latest fashion updates, exclusive offers, and styling tips delivered straight to your inbox!</p>
+            </div>
+            <div class="inp">
+                <input type="text" placeholder="Enter Email Address">
+                <button>Sign Up</button>
+            </div>
+        </div>
+
+    <footer>
+        <div class="footerLeft">
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">About Us</h1>
+                <ul class="fList">
+                    <li class="fListItem">Company</li>
+                    <li class="fListItem">Contact</li>
+                    <li class="fListItem">Careers</li>
+                    <li class="fListItem">Affiliates</li>
+                    <li class="fListItem">Stores</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Useful Links</h1>
+                <ul class="fList">
+                    <li class="fListItem">Support</li>
+                    <li class="fListItem">Refund</li>
+                    <li class="fListItem">FAQ</li>
+                    <li class="fListItem">Feedback</li>
+                    <li class="fListItem">Stories</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Products</h1>
+                <ul class="fList">
+                    <li class="fListItem">Men Fashion</li>
+                    <li class="fListItem">Women Fashion</li>
+                    <li class="fListItem">Kids Fashion</li>
+                    <li class="fListItem">festive collection</li>
+                    <li class="fListItem">wedding Collection</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script>
+        let mainPage = document.querySelector(".mainPage");
+let blogContent = document.querySelector(".blogContent");
+let cardMen = document.querySelector(".cardMen");
+let cardgirl = document.querySelector(".cardgirl");
+let cardkids = document.querySelector(".cardkids");
+let aboutPage = document.querySelector(".about");
+let contactus = document.querySelector(".contact");
+
+
+
+
+function home() {
+   mainPage.style.display = "flex";
+   cardMen.style.display = "block";
+   cardgirl.style.display = "block";
+   blogContent.style.display = "block"
+   contactus.style.display="none"
+   
+   document.getElementById("blog").style.color = "black";
+   document.getElementById("shop").style.color = "black";
+   document.getElementById("home").style.color = "rgb(1, 190, 190)";
+   document.getElementById("about").style.color = "black";
+   document.getElementById("contact").style.color="black";
+
+
+
+
+
+}
+
+
+function shop() {
+   cardMen.style.display = "block";
+   cardgirl.style.display = "block";
+   cardkids.style.display = "block";
+   mainPage.style.display = "none"
+   blogContent.style.display = "none";
+   aboutPage.style.display = "none";
+   contactus.style.display="none"
+   
+   document.getElementById("blog").style.color = "black";
+   document.getElementById("about").style.color = "black";
+   document.getElementById("shop").style.color = "rgb(1, 190, 190)"
+   document.getElementById("home").style.color = "black"
+   document.getElementById("contact").style.color="black";
+
+
+}
+
+
+function blog() {
+
+   cardMen.style.display = "none";
+   cardgirl.style.display = "none";
+   cardkids.style.display = "none";
+   mainPage.style.display = "none";
+   blogContent.style.display = "block"
+   aboutPage.style.display = "none";
+   contactus.style.display="none"
+
+   document.getElementById("blog").style.color = "rgb(1, 190, 190)";
+   document.getElementById("home").style.color = "black"
+   document.getElementById("shop").style.color = "black"
+   document.getElementById("about").style.color = "black";
+   document.getElementById("contact").style.color="black";
+
+
+
+
+
+}
+
+
+function about() {
+   aboutPage.style.display = "block";
+   cardMen.style.display = "none";
+   cardgirl.style.display = "none";
+   cardkids.style.display = "none";
+   mainPage.style.display = "none";
+   blogContent.style.display = "none";
+   contactus.style.display="none";
+
+   document.getElementById("blog").style.color = "black";
+   document.getElementById("home").style.color = "black"
+   document.getElementById("shop").style.color = "black";
+   document.getElementById("about").style.color = "rgb(1, 190, 190)"
+   document.getElementById("contact").style.color="black";
+
+
+}
+
+
+function contact() {
+   contactus.style.display="block";
+   aboutPage.style.display = "none";
+   cardMen.style.display = "none";
+   cardgirl.style.display = "none";
+   cardkids.style.display = "none";
+   mainPage.style.display = "none";
+   blogContent.style.display = "none"
+   document.getElementById("blog").style.color = "black";
+   document.getElementById("home").style.color = "black";
+   document.getElementById("shop").style.color = "black";
+   document.getElementById("about").style.color = "black";
+   document.getElementById("contact").style.color="rgb(1, 190, 190)"
+
+} 
+
+function showCard(img){
+   let newImg = document.getElementById("cartImg");
+   newImg.src=img.src;
+   document.querySelector(".fullPage").style.display="flex";
+   contactus.style.display="none";
+   aboutPage.style.display = "none";
+   cardMen.style.display = "none";
+   cardgirl.style.display = "none";
+   cardkids.style.display = "none";
+   mainPage.style.display = "none";
+   blogContent.style.display = "none"
+
+
+
+}
+
+// Add to Cart
+
+function addItem(){
+   document.querySelector(".addCart").style.display="block";
+   contactus.style.display="none";
+   aboutPage.style.display = "none";
+   cardMen.style.display = "none";
+   cardgirl.style.display = "none";
+   cardkids.style.display = "none";
+   mainPage.style.display = "none";
+   blogContent.style.display = "none"
+
+ 
+
+
+
+}
+ 
+function addToCart(){
+   alert("Added To Cart");
+   location.reload();
+}
+    </script>
+</body>
+
+</html>
   `, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8'
