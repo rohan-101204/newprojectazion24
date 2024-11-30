@@ -1,26 +1,33 @@
-# HTMX Boilerplate
 
-The **HTMX Boilerplate** template facilitates you to deploy and test a minimal example of the HTMX library in Azion Edge Platform. 
+# E-Commerce Website  
 
-This repository is an example of the new GitHub repository created during the deployment. For a more detailed step-by-step to deploy this template through Azion's platform, check the [How to deploy and test HTMX on the edge with a template](https://www.azion.com/en/documentation/products/guides/htmx-boilerplate/) guide.
+### Project Overview  
+This is a fully functional e-commerce website developed using **HTML**, **CSS**, and **JavaScript**. The project was created for the **Azion Contest**, showcasing a clean UI/UX design, responsive layouts, and interactive features for a smooth shopping experience.  
 
----
-
-## Requirements
-
-Before using this template, you need to:
-
-- Have a [GitHub account](https://github.com/signup).
-  - Every push will be deployed automatically to the main branch in this repository to keep your project updated.
-
-> **Note**: this template uses [Edge Functions](https://www.azion.com/en/documentation/products/build/edge-application/edge-functions/) and it could generate usage-related costs. Check the [pricing page](https://www.azion.com/en/pricing/) for more information.
+### Features  
+- **Home Page**: Displays featured products and categories.  
+- **Product Listing**: Showcases a range of products with sorting and filtering options.  
+- **Product Details**: Provides detailed information about individual products, including price, description, and reviews.  
+- **Responsive Design**: Fully optimized for desktops, tablets.  
 
 ---
 
-## Deploy your own
+### Technologies Used  
+- **HTML**: Structure of the website.  
+- **CSS**: Styling and layout for a visually appealing interface.  
+- **JavaScript**: Implements interactivity and dynamic content updates.  
 
-Deploy your own HTMX project with Azion.
+### live link :- https://afcbv0wpei.map.azionedge.net/
 
-[![Deploy Button](https://www.azion.com/button/)](https://console.azion.com/create/htmx/htmx-boilerplate "Deploy with Azion")
 
-For a more detailed step-by-step, check the [documentation](https://www.azion.com/en/documentation/products/guides/htmx-boilerplate/).
+### Future Improvements  
+- Integration with a real-time database.  
+- User authentication for login/signup functionality.  
+- Adding payment gateway integration.  
+- Enhanced animations and transitions.  
+
+
+### Credits  
+This project was created by **Rohan Sharma** for the **Azion Contest**.  
+
+Feel free to suggest improvements or report issues by opening a ticket in this repository.  
